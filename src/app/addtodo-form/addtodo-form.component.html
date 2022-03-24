@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8">
+      <input
+        type="text"
+        #todoInput
+        class="form-control"
+        placeholder="Enter Todo..."
+      />
+    </div>
+    <button
+      type="submit"
+      (click)="addTodoItem(todoInput); $event.preventDefault()"
+      class="btn btn-primary btn-sm"
+    >
+      Add Todo
+    </button>
+  </div>
+</div>
