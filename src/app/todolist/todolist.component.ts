@@ -15,4 +15,13 @@ export class TodolistComponent implements OnInit {
   ngOnInit(): void {
     this.todos = this.todosService.getTodos();
   }
+
+  toggleTodo(todo: Todo) {
+    todo.completed = !todo.completed;
+  }
+
+  deleteTodo(todo: Todo) {
+    const index = this.todos.indexOf(todo);
+    this.todosService.removeTodo(index);
+  }
 }

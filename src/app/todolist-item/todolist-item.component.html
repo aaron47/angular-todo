@@ -11,7 +11,7 @@
           {{ todo.content }}
         </li>
 
-        <button (click)="deleteTodo(todo)" class="btn btn-danger btn-sm p-2">
+        <button (click)="deleteTodo()" class="btn btn-danger btn-sm p-2">
           Remove Todo
         </button>
       </label>
@@ -19,7 +19,7 @@
         type="radio"
         aria-label="Radio button for following text input"
         [checked]="todo.completed"
-        (click)="toggleTodo(todo)"
+        (click)="toggleTodo()"
         class="p-2 form-check-input"
       />
     </div>

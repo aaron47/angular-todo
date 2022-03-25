@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Todo } from '../shared/todo.model';
 import { TodosService } from '../shared/todos.service';
 
@@ -9,6 +9,9 @@ import { TodosService } from '../shared/todos.service';
 })
 export class TodolistItemComponent implements OnInit {
   @Input() todo: Todo = { content: '', completed: false };
+  @Output() onToggleTodo = new EventEmitter<void>();
+  @Output() onDeleteTodo = new EventEmitter<void>();
+
   todos: Todo[] = [];
   constructor(private todosService: TodosService) {}
 
@@ -16,12 +19,14 @@ export class TodolistItemComponent implements OnInit {
     this.todos = this.todosService.getTodos();
   }
 
-  toggleTodo(todo: Todo): void {
-    todo.completed = !this.todo.completed;
+  toggleTodo(): void {
+    // todo.completed = !this.todo.completed;
+    this.onToggleTodo.emit();
   }
 
-  deleteTodo(todo: Todo): void {
-    const index = this.todos.indexOf(todo);
-    this.todosService.removeTodo(index);
+  deleteTodo(): void {
+    // const index = this.todos.indexOf(todo);
+    // this.todosService.removeTodo(index);
+    this.onDeleteTodo.emit();
   }
 }

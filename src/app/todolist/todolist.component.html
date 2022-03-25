@@ -2,5 +2,7 @@
   <app-todolist-item
     *ngFor="let todo of todos"
     [todo]="todo"
+    (onDeleteTodo)="deleteTodo(todo)"
+    (onToggleTodo)="toggleTodo(todo)"
   ></app-todolist-item>
 </ol>
